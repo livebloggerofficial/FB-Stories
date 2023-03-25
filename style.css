@@ -1,0 +1,152 @@
+body {
+  background: #e2f1ed;
+}
+
+.stories-container {
+  max-width: 600px;
+  margin: 24px auto;
+  position: relative;
+}
+
+.stories-container .previous-btn,
+.stories-container .next-btn,
+.stories-full-view .previous-btn,
+.stories-full-view .next-btn {
+  width: 30px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #444;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+}
+
+.stories-container .previous-btn,
+.stories-container .next-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms ease;
+}
+
+.stories-container .previous-btn.active,
+.stories-container .next-btn.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stories-container .previous-btn,
+.stories-full-view .previous-btn {
+  left: 8px;
+}
+
+.stories-container .next-btn,
+.stories-full-view .next-btn {
+  right: 8px;
+}
+
+.stories-container .story {
+  height: 180px;
+  width: 120px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.stories-container .story img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stories-container .stories {
+  display: flex;
+  gap: 8px;
+}
+
+.stories-container .content {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.stories-container .content::-webkit-scrollbar {
+  display: none;
+}
+
+.stories-container .author {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(transparent, #222 130%);
+}
+
+.stories-full-view {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  place-items: center;
+}
+
+.stories-full-view.active {
+  display: grid;
+}
+
+.stories-full-view .close-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 30px;
+  background: #444;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.stories-full-view .content {
+  height: 90vh;
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+}
+
+.stories-full-view .story {
+  height: 100%;
+  text-align: center;
+}
+
+.stories-full-view .story img {
+  height: 100%;
+  aspect-ratio: 10/16;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.stories-full-view .author {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 4px 32px;
+  border-radius: 8px;
+}
